@@ -6,112 +6,111 @@ echo "Home:    $HOME"
 echo "Hostname: $(hostname)"
 echo ""
 
-echo "1️⃣  GIT Version:"
+echo "1️⃣  GIT version:"
 if command -v git >/dev/null 2>&1; then
   git --version
 else
-  echo "❌ git nicht gefunden (Xcode CLT oder Homebrew installieren)"
+  echo "❌ git not found (install Xcode Command Line Tools or Homebrew git)."
 fi
 
 echo ""
-echo "2️⃣  GitHub CLI (gh) Version:"
+echo "2️⃣  GitHub CLI (gh) version:"
 if command -v gh >/dev/null 2>&1; then
   gh --version | head -n 1
-  # Protokoll anzeigen (ssh / https), wenn gesetzt
+  # Show protocol (ssh / https), if configured
   proto=$(gh config get git_protocol -h github.com 2>/dev/null)
   if [ -n "$proto" ]; then
-    echo "   → Git-Protokoll für github.com: $proto"
+    echo "   → Git protocol for github.com: $proto"
   fi
 else
-  echo "❌ gh (GitHub CLI) nicht gefunden (brew install gh)"
+  echo "❌ gh (GitHub CLI) not found (brew install gh)."
 fi
 
 echo ""
-echo "3️⃣  SSH Key(s) im Home (~/.ssh):"
+echo "3️⃣  SSH key(s) in home (~/.ssh):"
 if ls -l ~/.ssh/id_*.pub 2>/dev/null; then
   :
 else
-  echo "❌ Kein SSH Public Key gefunden!"
+  echo "❌ No SSH public key found!"
 fi
 if [ -f ~/.ssh/id_ed25519.pub ]; then
-  echo "🟢 id_ed25519.pub vorhanden"
+  echo "🟢 id_ed25519.pub present"
 else
-  echo "🔴 id_ed25519.pub NICHT gefunden"
+  echo "🔴 id_ed25519.pub NOT found"
 fi
 
 echo ""
-echo "4️⃣  Letzter SSH-Key Fingerprint (id_ed25519.pub):"
+echo "4️⃣  Latest SSH key fingerprint (id_ed25519.pub):"
 if [ -f ~/.ssh/id_ed25519.pub ]; then
   ssh-keygen -lf ~/.ssh/id_ed25519.pub
 else
-  echo "ℹ️ Kein id_ed25519.pub – Fingerprint wird übersprungen."
+  echo "ℹ️ No id_ed25519.pub – skipping fingerprint check."
 fi
 
 echo ""
-echo "5️⃣  SSH-Agent Status und geladene Keys:"
+echo "5️⃣  SSH agent status and loaded keys:"
 
 if [ -f ~/.ssh/id_ed25519 ]; then
   agent_output="$(ssh-add -l 2>&1)"
   agent_status=$?
 
   if [ $agent_status -eq 0 ]; then
-    # Keys sind bereits im Agent
+    # Keys are already loaded in the agent
     echo "$agent_output"
   else
     if echo "$agent_output" | grep -q "The agent has no identities."; then
-      echo "⚠️  SSH-Agent läuft, aber es sind keine Keys geladen."
-      echo "    → Versuche jetzt automatisch, ~/.ssh/id_ed25519 in den Agent zu laden ..."
+      echo "⚠️  SSH agent is running, but no keys are loaded."
+      echo "    → Trying to automatically add ~/.ssh/id_ed25519 to the agent ..."
 
-      # Key in den Agent laden (mit macOS Keychain-Integration)
+      # Load key into the agent (with macOS keychain integration)
       ssh-add --apple-use-keychain ~/.ssh/id_ed25519 2>/dev/null
 
-      # Nochmal prüfen
+      # Check again
       agent_output2="$(ssh-add -l 2>&1)"
       if [ $? -eq 0 ]; then
-        echo "🟢 Key wurde in den SSH-Agent geladen:"
+        echo "🟢 Key successfully added to SSH agent:"
         echo "    $agent_output2"
       else
-        echo "🔴 Konnte keinen Key in den Agent laden:"
+        echo "🔴 Failed to add key to SSH agent:"
         echo "    $agent_output2"
       fi
     else
-      echo "ℹ️  Kein SSH-Agent aktiv oder nicht erreichbar:"
+      echo "ℹ️  No SSH agent running or not reachable:"
       echo "    $agent_output"
     fi
   fi
 else
-  echo "ℹ️  Kein privater id_ed25519-Key (~/.ssh/id_ed25519) – Agent-Check wird übersprungen."
+  echo "ℹ️  No private id_ed25519 key (~/.ssh/id_ed25519) – skipping agent check."
 fi
 
 echo ""
-echo "6️⃣  TEST: GitHub SSH Login (wird ca. 2 Sek. dauern)..."
+echo "6️⃣  TEST: GitHub SSH login (may take ~2 seconds)..."
 if command -v ssh >/dev/null 2>&1; then
-  ssh -T git@github.com 2>&1 | grep -E "Hi |denied|refused|not provide shell access" || echo "ℹ️ Keine eindeutige SSH-Antwort erhalten."
+  ssh -T git@github.com 2>&1 | grep -E "Hi |denied|refused|not provide shell access" || echo "ℹ️ No clear SSH response received."
 else
-  echo "❌ ssh nicht gefunden"
+  echo "❌ ssh not found."
 fi
 
 echo ""
-echo "7️⃣  TEST: GitHub CLI Auth-Status:"
+echo "7️⃣  TEST: GitHub CLI auth status:"
 if command -v gh >/dev/null 2>&1; then
   gh auth status 2>&1
 else
-  echo "ℹ️ gh nicht installiert – Auth-Status wird übersprungen."
+  echo "ℹ️ gh not installed – skipping auth status."
 fi
 
 echo ""
-echo "8️⃣  PRÜFUNG: Public Key (id_ed25519.pub) in die Zwischenablage kopieren:"
+echo "8️⃣  Check: copy public key (id_ed25519.pub) to clipboard:"
 if [ -f ~/.ssh/id_ed25519.pub ]; then
   if command -v pbcopy >/dev/null 2>&1; then
     pbcopy < ~/.ssh/id_ed25519.pub
-    echo "🟢 Public Key wurde in die Zwischenablage kopiert (zum Hochladen bereit)."
+    echo "🟢 Public key was copied to the clipboard (ready to paste into GitHub)."
   else
-    echo "ℹ️ pbcopy nicht verfügbar – Zwischenablage wird übersprungen."
+    echo "ℹ️ pbcopy not available – skipping clipboard step."
   fi
 else
-  echo "ℹ️ Kein id_ed25519.pub – nichts zum Kopieren."
+  echo "ℹ️ No id_ed25519.pub – nothing to copy."
 fi
 
 echo ""
-echo "✅ Systemcheck abgeschlossen! Prüfe die Ausgabe oben."
-
+echo "✅ System check finished! Review the output above."
