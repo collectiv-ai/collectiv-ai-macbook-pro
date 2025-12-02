@@ -246,7 +246,7 @@ All orchestration and diagnostics are centralized in:
 ### 7.1 Control Center: ecosystem-menu.sh
 
 The main entry point is:
-`~/ecosystem-scripts/ecosystem-menu.sh`
+~/ecosystem-scripts/ecosystem-menu.sh`
 
 It provides a TUI Control Center with:
 
