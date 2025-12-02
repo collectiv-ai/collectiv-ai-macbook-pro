@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="logo.png" alt="CollectivAI Logo" width="320" />
+  <img src="logo.png" alt="CollectivAI Logo" width="400" />
 </p>
 
 # CollectivAI – macOS M2 Max Ecosystem Overview
 
 This repository documents the **full local ecosystem** running on a  
-**MacBook Pro 16" – Apple M2 Max, 64 GB RAM, 2 TB SSD (macOS 26.x)**.
+**MacBook Pro 16" – Apple M2 Max, 12 CPU, 38 GPU64, 64GB RAM, 2 TB SSD (macOS 26.x)**.
 
 It is the primary **blue-team / AI / orchestration machine** in the wider  
 **CollectivAI** environment (macOS + Kali + Ubuntu/Bittensor + nodes & agents).
