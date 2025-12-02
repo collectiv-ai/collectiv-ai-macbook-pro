@@ -77,6 +77,8 @@ The Mac acts as a **Python hub** for AI, agents, bots and trading systems.
 
 > The global environment is intentionally **rich** – this Mac is the main lab for AI agents, orchestration, trading bots and infra.
 
+---
+
 ### 2.2 pipx Apps
 
 `pipx` is used to isolate complex tools into dedicated venvs, such as:
@@ -87,6 +89,8 @@ The Mac acts as a **Python hub** for AI, agents, bots and trading systems.
 - `open-interpreter`, `open-webui`, `poetry`, `streamlit`
 
 All live under `~/.local/pipx/venvs`, fully separated from system Python.
+
+---
 
 ### 2.3 Agent & Bot Environments
 
@@ -250,10 +254,11 @@ All orchestration and diagnostics are centralized in:
 7.1 Control Center: ecosystem-menu.sh
 
 The main entry point is:
-1) AI / Agents – Checks, Install, Start
 ~/ecosystem-scripts/ecosystem-menu.sh
+
 It provides a TUI Control Center with:
 
+1) AI / Agents – Checks, Install, Start
 Audits
 	•	ai-agents-fullcheck.sh
 	•	collectivai-agent-audit.sh
@@ -284,13 +289,16 @@ Tests & fixes
 	•	fix-all-agents.sh
 	•	fix-metagpt.sh
 
+⸻
+
 2) Ecosystem – Master Check & Meta Audit
 	•	ecosystem-check.sh – Master system + ecosystem check
 	•	ecosystem-meta-audit.sh – Deep meta audit (basis for high-level reports)
 	•	ecosystem-livemon.sh – Live monitoring (CLI & SwiftBar integration)
 
-3) Crypto / Blockchain – Nodes & Status
+⸻
 
+3) Crypto / Blockchain – Nodes & Status
 Bitcoin
 	•	btc-sync-status.sh
 	•	btc-sync-monitor.sh
@@ -315,8 +323,9 @@ Trading (prepared)
 	•	trading-ai-finish-v2_1.sh
 	•	trading-ai-fix.sh and helpers
 
-4) Security / Blue Team – DNS & Watchdog
+⸻
 
+4) Security / Blue Team – DNS & Watchdog
 DNSCrypt
 	•	setup_dnscrypt.sh
 	•	fix_dnscrypt.sh
@@ -328,6 +337,8 @@ Monitoring
 	•	sync-speed-check.sh
 	•	swiftbar-cleanup.sh
 
+⸻
+
 5) GitHub / Dev – Status & Tools
 	•	github-status-check.sh – Git & GitHub status
 	•	copilot-github-check.sh – Copilot & dev tooling check
@@ -335,18 +346,26 @@ Monitoring
 	•	list-agents.sh, list-agent-dependencies.sh – Dev view on agents
 	•	safe-update.sh – Safe wrapper for system updates (brew, pipx, etc.)
 
+⸻
+
 6) SwiftBar / Live Monitoring
 	•	Integration with ecosystem-livemon.sh
 	•	Quick access to the SwiftBar plugins directory
 	•	Optionally opens the SwiftBar app
+
+⸻
 
 7) Nodes / TAO / USB – Diagnostics
 	•	tao-diagnose.sh – TAO/Bittensor diagnostics for the Ubuntu/UTM server
 	•	usb-ecosystem-setup.sh – Prepare USB ecosystem media
 	•	usb-clone-utm-tao.sh – Clone TAO UTM images onto USB
 
+⸻
+
 8) List all scripts by category
 	•	Shows a categorized overview of all scripts in ~/ecosystem-scripts/*
+
+⸻
 
 9) Home Inventory – Overview of ~/
 	•	Prints a structured inventory of the home directory:
