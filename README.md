@@ -247,7 +247,12 @@ All orchestration and diagnostics are centralized in:
   ├── dev/
   └── nodes/
 
+7.1 Control Center: ecosystem-menu.sh
+
+The main entry point is:
 1) AI / Agents – Checks, Install, Start
+~/ecosystem-scripts/ecosystem-menu.sh
+It provides a TUI Control Center with:
 
 Audits
 	•	ai-agents-fullcheck.sh
