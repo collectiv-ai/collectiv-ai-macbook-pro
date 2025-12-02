@@ -447,6 +447,7 @@ Future improvements for this environment may include:
   - `ecosystem-meta-audit.sh`
   - `ecosystem-livemon.sh`
   - `github-status-check.sh`
+
 - Adding architecture diagrams (Markdown / PlantUML / draw.io)
 - Adding reproducibility docs (Homebrew Brewfile, central requirements.txt / pyproject.toml)
 - Documenting SwiftBar plugins and dashboards
