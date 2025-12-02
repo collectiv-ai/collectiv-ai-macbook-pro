@@ -1,380 +1,388 @@
-CollectiVAI â€“ macOS M2 Max Ecosystem Overview
+<p align="center">
+  <img src="logo.png" alt="CollectivAI Logo" width="400" />
+</p>
 
-document describes the full local ecosystem running on a
-Pro 16" â€“ Apple M2 Max, 64 GB RAM, 2 TB SSD (macOS 26.x).
+# CollectiVAI – macOS M2 Max Ecosystem Overview
 
-is the primary blue-team / AI / orchestration machine in the wider
-environment (macOS + Kali + Ubuntu/Bittensor + nodes & agents).
+This repository documents the **full local ecosystem** running on a  
+**MacBook Pro 16" – Apple M2 Max, 64 GB RAM, 2 TB SSD (macOS 26.x)**.
 
-of this setup:
+It is the primary **blue-team / AI / orchestration machine** in the wider  
+**CollectivAI** environment (macOS + Kali + Ubuntu/Bittensor + nodes & agents).
 
-100% local & offline-capable AI (PrivateGPT + Ollama)
-Deep integration of AI + blockchain + security tooling
-A clean, script-driven Control Center for daily operations
+Focus of this setup:
 
-. Host System
+- **100% local & offline-capable AI** (PrivateGPT + Ollama)
+- Deep integration of **AI + blockchain + security tooling**
+- A clean, script-driven **Control Center** for daily operations
 
+---
 
+## 1. Host System
 
-Device: MacBook Pro 16"
-SoC: Apple M2 Max
-RAM: 64 GB
-Internal SSD: 2 TB
-Main OS: macOS 26.1 (Darwin 26.x)
+**Hardware**
 
-Snapshot
+- Device: MacBook Pro 16"
+- SoC: Apple M2 Max
+- RAM: 64 GB
+- Internal SSD: 2 TB
+- Main OS: macOS 26.1 (Darwin 26.x)
 
-macOS 26.1, build 25B78
-Plenty of free disk space on /
-RAM heavily used by AI/agents, still enough headroom for concurrent workloads
+**Runtime Snapshot**
 
-machine is designed as a permanent lab & control plane, not a minimal install.
+- macOS 26.1, build 25B78  
+- Plenty of free disk space on `/`  
+- RAM heavily used by AI/agents, still enough headroom for concurrent workloads  
 
-. Python & Environments
+The machine is designed as a **permanent lab & control plane**, not a minimal install.
 
-Mac acts as a Python hub for AI, agents, bots and trading systems.
+---
 
-.1 Global Python
+## 2. Python & Environments
 
-Primary Python: Python 3.13.x (Homebrew)
-A rich global environment with thousands of packages, including:
+The Mac acts as a **Python hub** for AI, agents, bots and trading systems.
 
-/ LLM & tooling
+### 2.1 Global Python
 
-openai, anthropic, google-genai, litellm
-llama-index*, langchain*, llama-parse
-jupyter, jupyterlab
+- Primary Python: **Python 3.13.x** (Homebrew)
+- A rich global environment with thousands of packages, including:
 
-/ APIs / frameworks
+**AI / LLM & tooling**
 
-fastapi, uvicorn, Flask, gradio, streamlit
-websockets, httpx, requests
+- `openai`, `anthropic`, `google-genai`, `litellm`  
+- `llama-index*`, `langchain*`, `llama-parse`  
+- `jupyter`, `jupyterlab`
 
-& science
+**Web / APIs / frameworks**
 
-pandas, numpy, scipy, matplotlib, scikit-learn, statsmodels
+- `fastapi`, `uvicorn`, `Flask`, `gradio`, `streamlit`  
+- `websockets`, `httpx`, `requests`
 
-/ blockchain
+**Data & science**
 
-web3, eth-account, ccxt, freqtrade, tronpy, Riskfolio-Lib
+- `pandas`, `numpy`, `scipy`, `matplotlib`, `scikit-learn`, `statsmodels`
 
-& automation frameworks
+**Crypto / blockchain**
 
-autogen, autogen-agentchat, autogen-core
-crewai, deepeval, open-interpreter
+- `web3`, `eth-account`, `ccxt`, `freqtrade`, `tronpy`, `Riskfolio-Lib`
 
-/ telemetry
+**Agent & automation frameworks**
 
-OpenTelemetry stack (opentelemetry-*).
+- `autogen`, `autogen-agentchat`, `autogen-core`  
+- `crewai`, `deepeval`, `open-interpreter`
 
-global environment is intentionally rich â€“ this Mac is the main lab for AI agents, orchestration, trading bots and infra.
+**Observability / telemetry**
 
-.2 pipx Apps
+- OpenTelemetry stack (`opentelemetry-*`)
 
-is used to isolate complex tools into dedicated venvs, such as:
+> The global environment is intentionally **rich** – this Mac is the main lab for AI agents, orchestration, trading bots and infra.
 
-aider-chat, autogenstudio, chromadb, crewai
-cryptoadvance-specter, freqtrade, glances, gpt-engineer
-jupyterlab, langchain-cli, langgraph-cli
-open-interpreter, open-webui, poetry, streamlit
+### 2.2 pipx Apps
 
-live under ~/.local/pipx/venvs, fully separated from system Python.
+`pipx` is used to isolate complex tools into dedicated venvs, such as:
 
-.3 Agent & Bot Environments
+- `aider-chat`, `autogenstudio`, `chromadb`, `crewai`
+- `cryptoadvance-specter`, `freqtrade`, `glances`, `gpt-engineer`
+- `jupyterlab`, `langchain-cli`, `langgraph-cli`
+- `open-interpreter`, `open-webui`, `poetry`, `streamlit`
 
-~/ai-agents/ there is a full fleet of agent and bot environments:
+All live under `~/.local/pipx/venvs`, fully separated from system Python.
 
-frameworks & tools
+### 2.3 Agent & Bot Environments
 
-autogenstudio, crewai, openai-bot, ai-bot
-open-interpreter, superagent, agent-llm, metagpt, opendevin
+Under `~/ai-agents/` there is a **full fleet of agent and bot environments**:
 
-/ comms bots
+**Agent frameworks & tools**
 
-telegram-bot, telegram-broadcast-hub, discord-bot, slack-bot
-mastodon-bot, matrix-bot, twitter-bot, reddit-bot, linkedin-bot
+- `autogenstudio`, `crewai`, `openai-bot`, `ai-bot`  
+- `open-interpreter`, `superagent`, `agent-llm`, `metagpt`, `opendevin`
 
-& crypto
+**Social / comms bots**
 
-hummingbot, trading-bot, ccxt-bot, jesse, freqtrade
+- `telegram-bot`, `telegram-broadcast-hub`, `discord-bot`, `slack-bot`  
+- `mastodon-bot`, `matrix-bot`, `twitter-bot`, `reddit-bot`, `linkedin-bot`
 
-/ glue
+**Trading & crypto**
 
-tools, voice-bot, whisper-bot, github-bot, lc-li
+- `hummingbot`, `trading-bot`, `ccxt-bot`, `jesse`, `freqtrade`
 
-subproject has its own requirements.txt and venv, allowing clean isolation.
+**Utilities / glue**
 
-. Local LLM Stack (Ollama + PrivateGPT)
+- `tools`, `voice-bot`, `whisper-bot`, `github-bot`, `lc-li`
 
-system uses a local-only LLM stack:
+Each subproject has its own `requirements.txt` and venv, allowing **clean isolation**.
 
-Ollama as the main model server (ollama serve on 127.0.0.1:11434)
-PrivateGPT (in ~/AI/private-gpt) configured to talk to Ollama
- â†’ no OpenAI / cloud LLM dependency
+---
 
-is started via a wrapper script (e.g. pgpt-ollama.sh) that selects an Ollama model like:
+## 3. Local LLM Stack (Ollama + PrivateGPT)
 
-llama3.1:8b as the main general-purpose model
+The system uses a **local-only LLM stack**:
 
-subset of the Ollama model zoo:
+- **Ollama** as the main model server (`ollama serve` on `127.0.0.1:11434`)
+- **PrivateGPT** (in `~/AI/private-gpt`) configured to talk to Ollama  
+  → **no OpenAI / cloud LLM dependency**
 
-/ chat / reasoning
+PrivateGPT is started via a wrapper script (e.g. `pgpt-ollama.sh`) that selects an Ollama model like:
 
-llama3.1:8b, llama3:latest, mistral:latest, neural-chat:latest, openchat:latest
-zephyr:latest, vicuna:latest, openhermes:latest, nous-hermes2:latest
+- `llama3.1:8b` as the main general-purpose model
 
-focused
+A subset of the Ollama model zoo:
 
-deepseek-coder-v2:16b, deepseek-coder:6.7b
-qwen2.5-coder:7b, qwen2.5-coder:14b
-codellama:latest, codellama:13b-instruct
-codestral:latest, sqlcoder:7b
+**General / chat / reasoning**
 
-& multimodal
+- `llama3.1:8b`, `llama3:latest`, `mistral:latest`, `neural-chat:latest`, `openchat:latest`  
+- `zephyr:latest`, `vicuna:latest`, `openhermes:latest`, `nous-hermes2:latest`
 
-llava:latest, llava:13b, llava:34b
-bakllava:latest, moondream:latest
+**Code-focused**
 
-/ R1-style
+- `deepseek-coder-v2:16b`, `deepseek-coder:6.7b`  
+- `qwen2.5-coder:7b`, `qwen2.5-coder:14b`  
+- `codellama:latest`, `codellama:13b-instruct`  
+- `codestral:latest`, `sqlcoder:7b`
 
-deepseek-r1:7b, deepseek-r1:14b
+**Vision & multimodal**
 
-/ retrieval
+- `llava:latest`, `llava:13b`, `llava:34b`  
+- `bakllava:latest`, `moondream:latest`
 
-nomic-embed-text:latest, mxbai-embed-large:latest, bge-m3:latest
+**Reasoning / R1-style**
 
-/ experimental
+- `deepseek-r1:7b`, `deepseek-r1:14b`
 
-tinyllama:latest, gemma:2b, phi3:mini, phi3:medium
+**Embedding / retrieval**
 
-entire LLM pipeline runs locally and offline.
-+ Ollama provide a self-contained, privacy-first AI stack.
+- `nomic-embed-text:latest`, `mxbai-embed-large:latest`, `bge-m3:latest`
 
-. Blockchain & Crypto Infrastructure
+**Lightweight / experimental**
 
-Mac also acts as a full crypto & smart contract lab.
+- `tinyllama:latest`, `gemma:2b`, `phi3:mini`, `phi3:medium`
 
-.1 Bitcoin
+> The entire LLM pipeline runs **locally and offline**.  
+> PrivateGPT + Ollama provide a self-contained, privacy-first AI stack.
 
-bitcoind â€“ Bitcoin Core v30.0.0 (full node)
-bitcoin-cli â€“ RPC access and inspection
-Helper scripts for sync monitoring and node status
+---
 
-.2 Ethereum & EVM
+## 4. Blockchain & Crypto Infrastructure
 
-geth â€“ Go Ethereum 1.16.x
-solc â€“ Solidity compiler
-forge, cast, anvil â€“ Foundry toolchain
-hardhat â€“ JavaScript-based smart contract framework
-eth-brownie â€“ Python-based Ethereum dev stack
+The Mac also acts as a **full crypto & smart contract lab**.
 
-.3 Trading & Bots
+### 4.1 Bitcoin
 
-freqtrade, ccxt, jesse, backtrader and others
-Used for strategy research and AI-assisted trading simulations
+- `bitcoind` – Bitcoin Core v30.0.0 (full node)
+- `bitcoin-cli` – RPC access and inspection
+- Helper scripts (see section 7) for sync monitoring and node status
 
-goal: one macOS machine as a unified AI + blockchain research node.
+### 4.2 Ethereum & EVM
 
-. Security, Networking & Privacy
+- `geth` – Go Ethereum 1.16.x
+- `solc` – Solidity compiler
+- `forge`, `cast`, `anvil` – Foundry toolchain
+- `hardhat` – JavaScript-based smart contract framework
+- `eth-brownie` – Python-based Ethereum dev stack
 
-and privacy are first-class citizens in this setup.
+### 4.3 Trading & Bots
 
+- `freqtrade`, `ccxt`, `jesse`, `backtrader` and others  
+- Used for strategy research and AI-assisted trading simulations
 
+> Design goal: one macOS machine as a unified **AI + blockchain research node**.
 
-LuLu firewall: active and monitoring outbound connections
+---
 
+## 5. Security, Networking & Privacy
 
+Security and privacy are **first-class citizens** in this setup.
 
-VPN interface (utun*) active â€“ used for anonymisation & geo abstraction
+**Firewall**
 
+- LuLu firewall: **active** and monitoring outbound connections
 
+**VPN**
 
-System-level tor service on 127.0.0.1:9050
-Integrated into the DNS stack and available for agents & CLI tools
+- VPN interface (`utun*`) active – used for anonymisation & geo abstraction
 
-/ leak protection
+**Tor**
 
-DNS-over-Tor with dnscrypt-proxy
-Dedicated scripts to configure, fix and reset dnscrypt and prevent DNS leaks
+- System-level `tor` service on `127.0.0.1:9050`  
+- Integrated into the DNS stack and available for agents & CLI tools
 
-tools
+**DNS / leak protection**
 
-crowdsec, fail2ban installed (can be enabled when needed)
+- DNS-over-Tor with `dnscrypt-proxy`  
+- Dedicated scripts to configure, fix and reset dnscrypt and prevent DNS leaks
 
-local services
+**Security tools**
 
-ollama on 127.0.0.1:11434 (+ IPv6)
-tor on 127.0.0.1:9050
+- `crowdsec`, `fail2ban` installed (can be enabled when needed)
 
-. Bots & Social Integrations
+**Exposed local services**
 
-social and messaging bots are integrated and live under ~/ai-agents/:
+- `ollama` on `127.0.0.1:11434` (+ IPv6)  
+- `tor` on `127.0.0.1:9050`
 
-Telegram, Discord, Slack, Mastodon, Reddit, Matrix, Twitter/X, LinkedIn
-Mail bots (IMAP/SMTP), GitHub bot, Whisper-based voice bot
+---
 
-bots run in separate venvs with requirements.txt.
-are off by default and can be started on demand, keeping the system clean.
+## 6. Bots & Social Integrations
 
-. Ecosystem Scripts, Control Center & Audits
+Several **social and messaging bots** are integrated and live under `~/ai-agents/`:
 
-orchestration and diagnostics are centralized in:
+- Telegram, Discord, Slack, Mastodon, Reddit, Matrix, Twitter/X, LinkedIn  
+- Mail bots (IMAP/SMTP), GitHub bot, Whisper-based voice bot  
 
+All bots run in separate venvs with `requirements.txt`.  
+They are **off by default** and can be started on demand, keeping the system clean.
+
+---
+
+## 7. Ecosystem Scripts, Control Center & Audits
+
+All orchestration and diagnostics are centralized in:
+
+```text
 ~/ecosystem-scripts/
- â”œâ”€â”€ ai/
- â”œâ”€â”€ crypto/
- â”œâ”€â”€ ecosystem/
- â”œâ”€â”€ security/
- â”œâ”€â”€ dev/
- â””â”€â”€ nodes/
+  ├── ai/
+  ├── crypto/
+  ├── ecosystem/
+  ├── security/
+  ├── dev/
+  └── nodes/
 
-.1 Control Center: ecosystem-menu.sh
+1) AI / Agents – Checks, Install, Start
 
-main entry point is:
+Audits
+	•	ai-agents-fullcheck.sh
+	•	collectivai-agent-audit.sh
+	•	privategpt-audit.sh
 
-~/ecosystem-scripts/ecosystem-menu.sh
+Live status & inventory
+	•	ai-status-live.sh
+	•	agents-bots-inventory.sh
 
-provides a TUI Control Center with:
+Start
+	•	start-all-agents.sh
+	•	start-privategpt.sh
+	•	start-metagpt.sh
 
-) AI / Agents â€“ Checks, Install, Start
+Installers
+	•	install-ai-agents.sh
+	•	install-best-of-ki.sh
+	•	install-models.sh
+	•	install-optional-models.sh
 
-Audits:
- - ai-agents-fullcheck.sh
- - collectivai-agent-audit.sh
- - privategpt-audit.sh
-Live status & inventory:
- - ai-status-live.sh
- - agents-bots-inventory.sh
-Start:
- - start-all-agents.sh
- - start-privategpt.sh
- - start-metagpt.sh
-Installers:
- - install-ai-agents.sh
- - install-best-of-ki.sh
- - install-models.sh
- - install-optional-models.sh
-Tests & fixes:
- - test-all-agents.sh
- - test-ollama-models.sh
- - test-ollama-models-clean.sh
- - test_autogen.py
- - venv-opendevin-check.sh
- - agent-hardfix.sh
- - fix-all-agents.sh
- - fix-metagpt.sh
+Tests & fixes
+	•	test-all-agents.sh
+	•	test-ollama-models.sh
+	•	test-ollama-models-clean.sh
+	•	test_autogen.py
+	•	venv-opendevin-check.sh
+	•	agent-hardfix.sh
+	•	fix-all-agents.sh
+	•	fix-metagpt.sh
 
-) Ecosystem â€“ Master Check & Meta Audit
+2) Ecosystem – Master Check & Meta Audit
+	•	ecosystem-check.sh – Master system + ecosystem check
+	•	ecosystem-meta-audit.sh – Deep meta audit (basis for high-level reports)
+	•	ecosystem-livemon.sh – Live monitoring (CLI & SwiftBar integration)
 
-ecosystem-check.sh â€“ Master system + ecosystem check
-ecosystem-meta-audit.sh â€“ Deep meta audit (basis for high-level reports)
-ecosystem-livemon.sh â€“ Live monitoring (CLI & SwiftBar integration)
+3) Crypto / Blockchain – Nodes & Status
 
-) Crypto / Blockchain â€“ Nodes & Status
+Bitcoin
+	•	btc-sync-status.sh
+	•	btc-sync-monitor.sh
+	•	btc-lightning-check.sh
 
-Bitcoin:
- - btc-sync-status.sh
- - btc-sync-monitor.sh
- - btc-lightning-check.sh
-Ethereum/Web3:
- - check-ethereum-node.sh
- - check-eth-snap-sync.sh
- - ethereum-suite-check.sh
- - web3-suite-check.sh
-Smart contracts:
- - full-smartcontract-check.sh
-Node lifecycle:
- - start-all-crypto.sh
- - start-geth-node.sh
- - start-geth-repair.sh
-Trading (prepared):
- - trading-ai-check.sh
- - trading-ai-finish-v2_1.sh
- - trading-ai-fix.sh and helpers
+Ethereum / Web3
+	•	check-ethereum-node.sh
+	•	check-eth-snap-sync.sh
+	•	ethereum-suite-check.sh
+	•	web3-suite-check.sh
 
-) Security / Blue Team â€“ DNS & Watchdog
+Smart contracts
+	•	full-smartcontract-check.sh
 
-DNSCrypt:
- - setup_dnscrypt.sh
- - fix_dnscrypt.sh
- - fix_dnscrypt_full.sh
- - dnscrypt-reset.sh
-Monitoring:
- - watchdog.sh
- - sync-speed-check.sh
- - swiftbar-cleanup.sh
+Node lifecycle
+	•	start-all-crypto.sh
+	•	start-geth-node.sh
+	•	start-geth-repair.sh
 
-) GitHub / Dev â€“ Status & Tools
+Trading (prepared)
+	•	trading-ai-check.sh
+	•	trading-ai-finish-v2_1.sh
+	•	trading-ai-fix.sh and helpers
 
-github-status-check.sh â€“ Git & GitHub status
-copilot-github-check.sh â€“ Copilot & dev tooling check
-python-env-check.sh â€“ Python diagnostics
-list-agents.sh, list-agent-dependencies.sh â€“ Dev view on agents
-safe-update.sh â€“ Safe wrapper for system updates (brew, pipx, etc.)
+4) Security / Blue Team – DNS & Watchdog
 
-) SwiftBar / Live Monitoring
+DNSCrypt
+	•	setup_dnscrypt.sh
+	•	fix_dnscrypt.sh
+	•	fix_dnscrypt_full.sh
+	•	dnscrypt-reset.sh
 
-Integration with ecosystem-livemon.sh
-Quick access to the SwiftBar plugins directory
-Optionally opens the SwiftBar app
+Monitoring
+	•	watchdog.sh
+	•	sync-speed-check.sh
+	•	swiftbar-cleanup.sh
 
-) Nodes / TAO / USB â€“ Diagnostics
+5) GitHub / Dev – Status & Tools
+	•	github-status-check.sh – Git & GitHub status
+	•	copilot-github-check.sh – Copilot & dev tooling check
+	•	python-env-check.sh – Python diagnostics
+	•	list-agents.sh, list-agent-dependencies.sh – Dev view on agents
+	•	safe-update.sh – Safe wrapper for system updates (brew, pipx, etc.)
 
-tao-diagnose.sh â€“ TAO/Bittensor diagnostics for the Ubuntu/UTM server
-usb-ecosystem-setup.sh â€“ Prepare USB ecosystem media
-usb-clone-utm-tao.sh â€“ Clone TAO UTM images onto USB
+6) SwiftBar / Live Monitoring
+	•	Integration with ecosystem-livemon.sh
+	•	Quick access to the SwiftBar plugins directory
+	•	Optionally opens the SwiftBar app
 
-) List all scripts by category
+7) Nodes / TAO / USB – Diagnostics
+	•	tao-diagnose.sh – TAO/Bittensor diagnostics for the Ubuntu/UTM server
+	•	usb-ecosystem-setup.sh – Prepare USB ecosystem media
+	•	usb-clone-utm-tao.sh – Clone TAO UTM images onto USB
 
-Shows a categorized overview of all scripts in ~/ecosystem-scripts/*
+8) List all scripts by category
+	•	Shows a categorized overview of all scripts in ~/ecosystem-scripts/*
 
-) Home Inventory â€“ Overview of ~/
+9) Home Inventory – Overview of ~/
+	•	Prints a structured inventory of the home directory:
+AI, Ecosystem, Crypto, Nodes, Security, Dev, and the standard macOS folders
+	•	Confirms that scripts are centralized under ~/ecosystem-scripts/ and that $HOME itself is clean and organized.
 
-Prints a structured inventory of the home directory:
- AI, Ecosystem, Crypto, Nodes, Security, Dev, and the standard macOS folders
-Confirms that scripts are centralized under ~/ecosystem-scripts/ and that $HOME itself is clean and organized.
+The Control Center turns the Mac into a single-command ops console
+for AI, crypto, security, nodes and diagnostics.
 
-Control Center turns the Mac into a single-command ops console
-AI, crypto, security, nodes and diagnostics.
+⸻
 
-. Role of This Mac in the CollectivAI Architecture
+8. Role of This Mac in the CollectivAI Architecture
 
-MacBook Pro M2 Max is the central hub in a multi-node setup:
+This MacBook Pro M2 Max is the central hub in a multi-node setup:
 
-(this machine)
+macOS (this machine)
+	•	Blue team, AI HQ, dashboards, orchestration & control
+	•	PrivateGPT + Ollama local LLM stack
+	•	Ecosystem scripts & SwiftBar monitoring
 
-Blue team, AI HQ, dashboards, orchestration & control
-PrivateGPT + Ollama local LLM stack
-Ecosystem scripts & SwiftBar monitoring
+UTM VMs
+	•	Kali Linux – red team, pentesting, WiFi Pineapple, Alfa adapters
+	•	Ubuntu Server – Bittensor (TAO) node(s) and additional services
 
-VMs
+External nodes
+	•	Jetson / future GPU rigs for heavy AI & Bittensor workloads
 
-Kali Linux â€“ red team, pentesting, WiFi Pineapple, Alfa adapters
-Ubuntu Server â€“ Bittensor (TAO) node(s) and additional services
+The goal is a fully local, privacy-first, European-style AI & crypto environment
+with this Mac as the brain and control center.
 
-nodes
+⸻
 
-Jetson / future GPU rigs for heavy AI & Bittensor workloads
+9. Next Steps
 
-goal is a fully local, privacy-first, European-style AI & crypto environment
-this Mac as the brain and control center.
-
-. Next Steps
-
-improvements for this environment may include:
-
-Adding key scripts to the public repo:
- - ecosystem-menu.sh
- - ecosystem-check.sh
- - ecosystem-meta-audit.sh
- - ecosystem-livemon.sh
- - github-status-check.sh
-Adding architecture diagrams (Markdown / PlantUML / draw.io)
-Adding reproducibility docs (Homebrew Brewfile, central requirements.txt / pyproject.toml)
-Documenting SwiftBar plugins and dashboards.
-
-
-
-can choose any license, e.g.:
-
-License â€“ see LICENSE file.
+Future improvements for this environment may include:
+	•	Adding key scripts to the public repo:
+	•	ecosystem-menu.sh
+	•	ecosystem-check.sh
+	•	ecosystem-meta-audit.sh
+	•	ecosystem-livemon.sh
+	•	github-status-check.sh
+	•	Adding architecture diagrams (Markdown / PlantUML / draw.io)
+	•	Adding reproducibility docs (Homebrew Brewfile, central requirements.txt / pyproject.toml)
+	•	Documenting SwiftBar plugins and dashboards
