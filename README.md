@@ -398,6 +398,37 @@ with this Mac as the brain and control center.
 
 ⸻
 
+8.1 Edge Nodes & Security Lab – Hackberry CM5
+
+In addition to the macOS M2 Max lab, the CollectiVAI ecosystem uses
+two Hackberry CM5 boards as dedicated red/blue team nodes:
+
+Hardware
+	•	2 × Hackberry CM5
+	•	16 GB RAM
+	•	512 GB NVMe SSD
+	•	64 GB onboard flash (Compute Module 5)
+	•	~12 GB zram, ~32 GB swap each
+	•	integrated Wi-Fi & Bluetooth
+
+Operating systems
+	•	Kali Linux (Large) – red-team / offensive security lab
+	•	Parrot OS (Security / Blue Team) – defensive analysis, monitoring and hardening
+
+Wireless / network lab
+	•	Hak5 WiFi Pineapple Mk7 Tactical – Wi-Fi auditing & attack simulation
+	•	Alfa AWUS036ACM adapters – external USB Wi-Fi for Kali / Parrot
+
+These nodes are used to:
+	•	simulate and analyse real-world attack scenarios (red team),
+	•	test and harden networks, Wi-Fi setups and infrastructure (blue team),
+	•	validate that the CollectiVAI ecosystem can be deployed and defended
+in realistic environments.
+
+The macOS M2 Max acts as the central control plane, while the Hackberry CM5 boards provide a flexible, low-power security lab for continuous learning and testing.
+
+⸻
+
 9. Next Steps
 
 Future improvements for this environment may include:
