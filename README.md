@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" alt="CollectivAI Logo" width="320" />
+  <img src="logo.png" alt="CollectivAI Logo" width="400" />
 </p>
 
 # CollectiVAI – macOS M2 Max Ecosystem Overview
