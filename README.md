@@ -241,6 +241,7 @@ They are **off by default** and can be started on demand, keeping the system cle
 ## 7. Ecosystem Scripts, Control Center & Audits
 
 All orchestration and diagnostics are centralized in:
+
 ~/ecosystem-scripts/ ├── ai/ ├── crypto/ ├── ecosystem/ ├── security/ ├── dev/ └── nodes/
 
 ### 7.1 Control Center: ecosystem-menu.sh
