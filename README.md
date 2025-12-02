@@ -5,12 +5,12 @@
 # CollectiVAI – macOS M2 Max Ecosystem Overview
 
 This repository documents the **full local ecosystem** running on a  
-**MacBook Pro 16" – Apple M2 Max, 64 GB RAM, 2 TB SSD (macOS 26.x)**.
+**MacBook Pro 16" – Apple M2 Max, 64 GB RAM, 2 TB SSD (macOS 15.x)**.
 
-It is the primary **blue-team / AI / orchestration machine** in the wider  
+It serves as the primary **blue-team / AI / orchestration machine** within the broader  
 **CollectivAI** environment (macOS + Kali + Ubuntu/Bittensor + nodes & agents).
 
-Focus of this setup:
+## Focus of this Setup
 
 - **100% local & offline-capable AI** (PrivateGPT + Ollama)
 - Deep integration of **AI + blockchain + security tooling**
@@ -20,19 +20,19 @@ Focus of this setup:
 
 ## 1. Host System
 
-**Hardware**
+### Hardware
 
 - Device: MacBook Pro 16"
 - SoC: Apple M2 Max
 - RAM: 64 GB
 - Internal SSD: 2 TB
-- Main OS: macOS 26.1 (Darwin 26.x)
+- Main OS: macOS 15.1 (Darwin 24.x)
 
-**Runtime Snapshot**
+### Runtime Snapshot
 
-- macOS 26.1, build 25B78  
+- macOS 15.1, build 24B83  
 - Plenty of free disk space on `/`  
-- RAM heavily used by AI/agents, still enough headroom for concurrent workloads  
+- RAM heavily used by AI/agents, but still sufficient headroom for concurrent workloads  
 
 The machine is designed as a **permanent lab & control plane**, not a minimal install.
 
@@ -40,42 +40,42 @@ The machine is designed as a **permanent lab & control plane**, not a minimal in
 
 ## 2. Python & Environments
 
-The Mac acts as a **Python hub** for AI, agents, bots and trading systems.
+The Mac acts as a **Python hub** for AI, agents, bots, and trading systems.
 
 ### 2.1 Global Python
 
 - Primary Python: **Python 3.13.x** (Homebrew)
 - A rich global environment with thousands of packages, including:
 
-**AI / LLM & tooling**
+#### AI / LLM & Tooling
 
 - `openai`, `anthropic`, `google-genai`, `litellm`  
 - `llama-index*`, `langchain*`, `llama-parse`  
 - `jupyter`, `jupyterlab`
 
-**Web / APIs / frameworks**
+#### Web / APIs / Frameworks
 
 - `fastapi`, `uvicorn`, `Flask`, `gradio`, `streamlit`  
 - `websockets`, `httpx`, `requests`
 
-**Data & science**
+#### Data & Science
 
 - `pandas`, `numpy`, `scipy`, `matplotlib`, `scikit-learn`, `statsmodels`
 
-**Crypto / blockchain**
+#### Crypto / Blockchain
 
 - `web3`, `eth-account`, `ccxt`, `freqtrade`, `tronpy`, `Riskfolio-Lib`
 
-**Agent & automation frameworks**
+#### Agent & Automation Frameworks
 
 - `autogen`, `autogen-agentchat`, `autogen-core`  
 - `crewai`, `deepeval`, `open-interpreter`
 
-**Observability / telemetry**
+#### Observability / Telemetry
 
 - OpenTelemetry stack (`opentelemetry-*`)
 
-> The global environment is intentionally **rich** – this Mac is the main lab for AI agents, orchestration, trading bots and infra.
+> The global environment is intentionally **rich** – this Mac is the main lab for AI agents, orchestration, trading bots, and infrastructure.
 
 ---
 
@@ -96,21 +96,21 @@ All live under `~/.local/pipx/venvs`, fully separated from system Python.
 
 Under `~/ai-agents/` there is a **full fleet of agent and bot environments**:
 
-**Agent frameworks & tools**
+#### Agent Frameworks & Tools
 
 - `autogenstudio`, `crewai`, `openai-bot`, `ai-bot`  
 - `open-interpreter`, `superagent`, `agent-llm`, `metagpt`, `opendevin`
 
-**Social / comms bots**
+#### Social / Comms Bots
 
 - `telegram-bot`, `telegram-broadcast-hub`, `discord-bot`, `slack-bot`  
 - `mastodon-bot`, `matrix-bot`, `twitter-bot`, `reddit-bot`, `linkedin-bot`
 
-**Trading & crypto**
+#### Trading & Crypto
 
 - `hummingbot`, `trading-bot`, `ccxt-bot`, `jesse`, `freqtrade`
 
-**Utilities / glue**
+#### Utilities / Glue
 
 - `tools`, `voice-bot`, `whisper-bot`, `github-bot`, `lc-li`
 
@@ -130,34 +130,34 @@ PrivateGPT is started via a wrapper script (e.g. `pgpt-ollama.sh`) that selects 
 
 - `llama3.1:8b` as the main general-purpose model
 
-A subset of the Ollama model zoo:
+### Subset of the Ollama Model Zoo
 
-**General / chat / reasoning**
+#### General / Chat / Reasoning
 
 - `llama3.1:8b`, `llama3:latest`, `mistral:latest`, `neural-chat:latest`, `openchat:latest`  
 - `zephyr:latest`, `vicuna:latest`, `openhermes:latest`, `nous-hermes2:latest`
 
-**Code-focused**
+#### Code-Focused
 
 - `deepseek-coder-v2:16b`, `deepseek-coder:6.7b`  
 - `qwen2.5-coder:7b`, `qwen2.5-coder:14b`  
 - `codellama:latest`, `codellama:13b-instruct`  
 - `codestral:latest`, `sqlcoder:7b`
 
-**Vision & multimodal**
+#### Vision & Multimodal
 
 - `llava:latest`, `llava:13b`, `llava:34b`  
 - `bakllava:latest`, `moondream:latest`
 
-**Reasoning / R1-style**
+#### Reasoning / R1-style
 
 - `deepseek-r1:7b`, `deepseek-r1:14b`
 
-**Embedding / retrieval**
+#### Embedding / Retrieval
 
 - `nomic-embed-text:latest`, `mxbai-embed-large:latest`, `bge-m3:latest`
 
-**Lightweight / experimental**
+#### Lightweight / Experimental
 
 - `tinyllama:latest`, `gemma:2b`, `phi3:mini`, `phi3:medium`
 
@@ -197,29 +197,29 @@ The Mac also acts as a **full crypto & smart contract lab**.
 
 Security and privacy are **first-class citizens** in this setup.
 
-**Firewall**
+### Firewall
 
 - LuLu firewall: **active** and monitoring outbound connections
 
-**VPN**
+### VPN
 
 - VPN interface (`utun*`) active – used for anonymisation & geo abstraction
 
-**Tor**
+### Tor
 
 - System-level `tor` service on `127.0.0.1:9050`  
 - Integrated into the DNS stack and available for agents & CLI tools
 
-**DNS / leak protection**
+### DNS / Leak Protection
 
 - DNS-over-Tor with `dnscrypt-proxy`  
 - Dedicated scripts to configure, fix and reset dnscrypt and prevent DNS leaks
 
-**Security tools**
+### Security Tools
 
 - `crowdsec`, `fail2ban` installed (can be enabled when needed)
 
-**Exposed local services**
+### Exposed Local Services
 
 - `ollama` on `127.0.0.1:11434` (+ IPv6)  
 - `tor` on `127.0.0.1:9050`
@@ -242,202 +242,3 @@ They are **off by default** and can be started on demand, keeping the system cle
 
 All orchestration and diagnostics are centralized in:
 
-```text
-~/ecosystem-scripts/
-  ├── ai/
-  ├── crypto/
-  ├── ecosystem/
-  ├── security/
-  ├── dev/
-  └── nodes/
-
-7.1 Control Center: ecosystem-menu.sh
-
-The main entry point is:
-~/ecosystem-scripts/ecosystem-menu.sh
-
-It provides a TUI Control Center with:
-
-1) AI / Agents – Checks, Install, Start
-Audits
-	•	ai-agents-fullcheck.sh
-	•	collectivai-agent-audit.sh
-	•	privategpt-audit.sh
-
-Live status & inventory
-	•	ai-status-live.sh
-	•	agents-bots-inventory.sh
-
-Start
-	•	start-all-agents.sh
-	•	start-privategpt.sh
-	•	start-metagpt.sh
-
-Installers
-	•	install-ai-agents.sh
-	•	install-best-of-ki.sh
-	•	install-models.sh
-	•	install-optional-models.sh
-
-Tests & fixes
-	•	test-all-agents.sh
-	•	test-ollama-models.sh
-	•	test-ollama-models-clean.sh
-	•	test_autogen.py
-	•	venv-opendevin-check.sh
-	•	agent-hardfix.sh
-	•	fix-all-agents.sh
-	•	fix-metagpt.sh
-
-⸻
-
-2) Ecosystem – Master Check & Meta Audit
-	•	ecosystem-check.sh – Master system + ecosystem check
-	•	ecosystem-meta-audit.sh – Deep meta audit (basis for high-level reports)
-	•	ecosystem-livemon.sh – Live monitoring (CLI & SwiftBar integration)
-
-⸻
-
-3) Crypto / Blockchain – Nodes & Status
-Bitcoin
-	•	btc-sync-status.sh
-	•	btc-sync-monitor.sh
-	•	btc-lightning-check.sh
-
-Ethereum / Web3
-	•	check-ethereum-node.sh
-	•	check-eth-snap-sync.sh
-	•	ethereum-suite-check.sh
-	•	web3-suite-check.sh
-
-Smart contracts
-	•	full-smartcontract-check.sh
-
-Node lifecycle
-	•	start-all-crypto.sh
-	•	start-geth-node.sh
-	•	start-geth-repair.sh
-
-Trading (prepared)
-	•	trading-ai-check.sh
-	•	trading-ai-finish-v2_1.sh
-	•	trading-ai-fix.sh and helpers
-
-⸻
-
-4) Security / Blue Team – DNS & Watchdog
-DNSCrypt
-	•	setup_dnscrypt.sh
-	•	fix_dnscrypt.sh
-	•	fix_dnscrypt_full.sh
-	•	dnscrypt-reset.sh
-
-Monitoring
-	•	watchdog.sh
-	•	sync-speed-check.sh
-	•	swiftbar-cleanup.sh
-
-⸻
-
-5) GitHub / Dev – Status & Tools
-	•	github-status-check.sh – Git & GitHub status
-	•	copilot-github-check.sh – Copilot & dev tooling check
-	•	python-env-check.sh – Python diagnostics
-	•	list-agents.sh, list-agent-dependencies.sh – Dev view on agents
-	•	safe-update.sh – Safe wrapper for system updates (brew, pipx, etc.)
-
-⸻
-
-6) SwiftBar / Live Monitoring
-	•	Integration with ecosystem-livemon.sh
-	•	Quick access to the SwiftBar plugins directory
-	•	Optionally opens the SwiftBar app
-
-⸻
-
-7) Nodes / TAO / USB – Diagnostics
-	•	tao-diagnose.sh – TAO/Bittensor diagnostics for the Ubuntu/UTM server
-	•	usb-ecosystem-setup.sh – Prepare USB ecosystem media
-	•	usb-clone-utm-tao.sh – Clone TAO UTM images onto USB
-
-⸻
-
-8) List all scripts by category
-	•	Shows a categorized overview of all scripts in ~/ecosystem-scripts/*
-
-⸻
-
-9) Home Inventory – Overview of ~/
-	•	Prints a structured inventory of the home directory:
-AI, Ecosystem, Crypto, Nodes, Security, Dev, and the standard macOS folders
-	•	Confirms that scripts are centralized under ~/ecosystem-scripts/ and that $HOME itself is clean and organized.
-
-The Control Center turns the Mac into a single-command ops console
-for AI, crypto, security, nodes and diagnostics.
-
-⸻
-
-8. Role of This Mac in the CollectivAI Architecture
-
-This MacBook Pro M2 Max is the central hub in a multi-node setup:
-
-macOS (this machine)
-	•	Blue team, AI HQ, dashboards, orchestration & control
-	•	PrivateGPT + Ollama local LLM stack
-	•	Ecosystem scripts & SwiftBar monitoring
-
-UTM VMs
-	•	Kali Linux – red team, pentesting, WiFi Pineapple, Alfa adapters
-	•	Ubuntu Server – Bittensor (TAO) node(s) and additional services
-
-External nodes
-	•	Jetson / future GPU rigs for heavy AI & Bittensor workloads
-
-The goal is a fully local, privacy-first, European-style AI & crypto environment
-with this Mac as the brain and control center.
-
-⸻
-
-8.1 Edge Nodes & Security Lab – Hackberry CM5
-
-In addition to the macOS M2 Max lab, the CollectiVAI ecosystem uses
-two Hackberry CM5 boards as dedicated red/blue team nodes:
-
-Hardware
-	•	2 × Hackberry CM5
-	•	16 GB RAM
-	•	512 GB NVMe SSD
-	•	64 GB onboard flash (Compute Module 5)
-	•	~12 GB zram, ~32 GB swap each
-	•	integrated Wi-Fi & Bluetooth
-
-Operating systems
-	•	Kali Linux (Large) – red-team / offensive security lab
-	•	Parrot OS (Security / Blue Team) – defensive analysis, monitoring and hardening
-
-Wireless / network lab
-	•	Hak5 WiFi Pineapple Mk7 Tactical – Wi-Fi auditing & attack simulation
-	•	Alfa AWUS036ACM adapters – external USB Wi-Fi for Kali / Parrot
-
-These nodes are used to:
-	•	simulate and analyse real-world attack scenarios (red team),
-	•	test and harden networks, Wi-Fi setups and infrastructure (blue team),
-	•	validate that the CollectiVAI ecosystem can be deployed and defended
-in realistic environments.
-
-The macOS M2 Max acts as the central control plane, while the Hackberry CM5 boards provide a flexible, low-power security lab for continuous learning and testing.
-
-⸻
-
-9. Next Steps
-
-Future improvements for this environment may include:
-	•	Adding key scripts to the public repo:
-	•	ecosystem-menu.sh
-	•	ecosystem-check.sh
-	•	ecosystem-meta-audit.sh
-	•	ecosystem-livemon.sh
-	•	github-status-check.sh
-	•	Adding architecture diagrams (Markdown / PlantUML / draw.io)
-	•	Adding reproducibility docs (Homebrew Brewfile, central requirements.txt / pyproject.toml)
-	•	Documenting SwiftBar plugins and dashboards
