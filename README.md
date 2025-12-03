@@ -168,6 +168,22 @@ PrivateGPT is started via a wrapper script (e.g. `pgpt-ollama.sh`) that selects 
 
 ---
 
+## 3.1 Table of Contents
+
+1. [Host System](#1-host-system)
+2. [Python & Environments](#2-python--environments)
+3. [Local LLM Stack (Ollama + PrivateGPT)](#3-local-llm-stack-ollama--privategpt)
+4. [Blockchain & Crypto Infrastructure](#4-blockchain--crypto-infrastructure)
+5. [Security, Networking & Privacy](#5-security-networking--privacy)
+6. [Bots & Social Integrations](#6-bots--social-integrations)
+7. [Ecosystem Scripts & Control Center](#7-ecosystem-scripts-control-center--audits)
+8. [Role of This Mac](#8-role-of-this-mac-in-the-collectivai-architecture)
+9. [Hackberry CM5 Edge Nodes](#81-edge-nodes--security-lab--hackberry-cm5)
+10. [Next Steps](#9-next-steps)
+11. [What this lab enables](#10-what-this-lab-enables)
+
+---
+
 ## 4. Blockchain & Crypto Infrastructure
 
 The Mac also acts as a **full crypto & smart contract lab**.
