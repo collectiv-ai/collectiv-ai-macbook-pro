@@ -5,7 +5,7 @@
 # CollectiVAI – macOS M2 Max Ecosystem Overview
 
 This repository documents the **full local ecosystem** running on a  
-**MacBook Pro 16" – Apple M2 Max, 64 GB RAM, 2 TB SSD (macOS 15.x)**.
+**MacBook Pro 16" – Apple M2 Max, 64 GB RAM, 12 CPU, 38 GPU, 2 TB SSD (macOS 26.1)**.
 
 It serves as the primary **blue-team / AI / orchestration machine** within the broader  
 **CollectivAI** environment (macOS + Kali + Ubuntu/Bittensor + nodes & agents).
@@ -25,12 +25,14 @@ It serves as the primary **blue-team / AI / orchestration machine** within the b
 - Device: MacBook Pro 16"
 - SoC: Apple M2 Max
 - RAM: 64 GB
+- CPU 12 (8/4)
+- GPU 38
 - Internal SSD: 2 TB
-- Main OS: macOS 15.1 (Darwin 24.x)
+- Main OS: macOS 15.1 (Tahoe 26.1)
 
 ### Runtime Snapshot
 
-- macOS 15.1, build 24B83  
+- macOS 26.1, build 24B83  
 - Plenty of free disk space on `/`  
 - RAM heavily used by AI/agents, but still sufficient headroom for concurrent workloads  
 
