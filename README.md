@@ -4,6 +4,22 @@
 
 # CollectiVAI – macOS M2 Max Ecosystem Overview
 
+> 👋 **For recruiters, teams & collaborators**
+>
+> This repository is not a typical “app repo”, but the documentation
+> of my **local macOS M2 Max lab system**.
+>
+> It shows how I:
+> - build a full **AI, security & blockchain ecosystem** on a single host,
+> - automate everything via custom **shell scripts, checks & dashboards**,
+> - connect **local LLMs (Ollama + PrivateGPT)** with nodes, trading tools and a security stack,
+> - and use this Mac as a **living blue-team / AI control center** for the wider CollectivAI setup.
+>
+> The goal is to provide a **transparent, technical reference** of how I work –
+> as a basis for conversations around roles in **AI, cybersecurity, DevOps, Web3 / crypto
+> and system engineering**.
+
+
 This repository documents the **full local ecosystem** running on a  
 **MacBook Pro 16" – Apple M2 Max, 64 GB RAM, 12 CPU, 38 GPU, 2 TB SSD (macOS 26.1)**.
 
