@@ -44,7 +44,7 @@ It serves as the primary **blue-team / AI / orchestration machine** within the b
 - CPU 12 (8/4)
 - GPU 38
 - Internal SSD: 2 TB
-- Main OS: macOS 15.1 (Tahoe 26.1)
+- Main OS: macOS Tahoe 26.1
 
 ### Runtime Snapshot
 
