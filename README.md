@@ -150,35 +150,69 @@ PrivateGPT is started via a wrapper script (e.g. `pgpt-ollama.sh`) that selects 
 
 ### Subset of the Ollama Model Zoo
 
-#### General / Chat / Reasoning
+# 🤖 4. Lokales AI-Ökosystem (Ollama + PrivateGPT)
 
-- `llama3.1:8b`, `llama3:latest`, `mistral:latest`, `neural-chat:latest`, `openchat:latest`  
-- `zephyr:latest`, `vicuna:latest`, `openhermes:latest`, `nous-hermes2:latest`
+## ✔ Ollama Runtime  
+**Alle Modelle offline & lokal. Keine Keys. Kein Cloud-Zugriff.**
 
-#### Code-Focused
+## 🔥 OLLAMA Modelle — **kategorisiert**  
+*(Stand: Dezember 2025)*
 
-- `deepseek-coder-v2:16b`, `deepseek-coder:6.7b`  
-- `qwen2.5-coder:7b`, `qwen2.5-coder:14b`  
-- `codellama:latest`, `codellama:13b-instruct`  
-- `codestral:latest`, `sqlcoder:7b`
+### 🟦 A) Reasoning & Chat (General AI)
+- gemma3:27b (17 GB) ⭐⭐⭐⭐⭐  
+- gemma3:12b (8.1 GB) ⭐⭐⭐⭐  
+- llama3.1:8b (4.9 GB)  
+- llama3:latest (4.7 GB)  
+- mistral:latest (4.4 GB)  
+- zephyr:latest (4.1 GB)  
+- yi:9b (5.0 GB)
 
-#### Vision & Multimodal
+---
 
-- `llava:latest`, `llava:13b`, `llava:34b`  
-- `bakllava:latest`, `moondream:latest`
+### 🟨 B) Coding / Development / Agents
+- deepseek-coder-v2:16b (8.9 GB) ⭐⭐⭐⭐⭐  
+- starcoder2:15b (9.1 GB) ⭐⭐⭐⭐⭐  
+- qwen3-coder:480b-cloud  
+- codestral:latest (12 GB)  
+- openchat:latest (4.1 GB)  
+- devstral:latest (14 GB)
 
-#### Reasoning / R1-style
+---
 
-- `deepseek-r1:7b`, `deepseek-r1:14b`
+### 🟥 C) Logic / Math / Scientific
+- qwen2-math:7b (4.4 GB) ⭐⭐⭐⭐⭐  
+- deepseek-r1:14b (9.0 GB) ⭐⭐⭐⭐⭐  
+- deepseek-r1:7b (4.7 GB)
 
-#### Embedding / Retrieval
+---
 
-- `nomic-embed-text:latest`, `mxbai-embed-large:latest`, `bge-m3:latest`
+### 🟩 D) Vision / Multimodal
+- llava:34b (20 GB) ⭐⭐⭐⭐⭐  
+- moondream:latest (1.7 GB)  
+- qwen3-vl:* (cloud)
 
-#### Lightweight / Experimental
+---
 
-- `tinyllama:latest`, `gemma:2b`, `phi3:mini`, `phi3:medium`
+### 🟪 E) Embeddings / Vektor-Suche
+- nomic-embed-text (274 MB)  
+- bge-m3 (1.2 GB) ⭐⭐⭐⭐⭐  
+- mxbai-embed-large (669 MB)
 
+---
+
+### 🟧 F) Audio / Whisper
+- whisper-tiny (44 MB)  
+- whisper:latest (2.0 GB)
+
+---
+
+## ✔ PrivateGPT integriert
+- lokaler Wissensspeicher  
+- PDF/Text ingestion  
+- Embedding Index (bge-m3 + mxbai-large)  
+- Ollama als Backend  
+
+---
 > The entire LLM pipeline runs **locally and offline**.  
 > PrivateGPT + Ollama provide a self-contained, privacy-first AI stack.
 
