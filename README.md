@@ -204,7 +204,7 @@ PrivateGPT is started via a wrapper script (e.g. `pgpt-ollama.sh`) that selects 
 - dimavz/whisper-tiny:latest — 44 MB
 - karanchopda333/whisper:latest — 2.0 GB
 
-### ☁️ Cloud / Proxy Models (nicht lokal, API-Wrapper)
+### ☁️ Cloud / Proxy Models (API-Wrapper)
 - ministral-3:14b-cloud
 - ministral-3:8b-cloud
 - ministral-3:3b-cloud
