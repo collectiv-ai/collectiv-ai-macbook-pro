@@ -150,63 +150,74 @@ PrivateGPT is started via a wrapper script (e.g. `pgpt-ollama.sh`) that selects 
 
 ### Subset of the Ollama Model Zoo
 
-## ✔ Ollama Runtime
+## 🤖 OLLAMA MODEL INVENTORY (macOS M2 Max)
 
-### 🟦 A) Reasoning & Chat (General AI)
-- gemma3:27b (17 GB) ⭐⭐⭐⭐⭐  
-- gemma3:12b (8.1 GB) ⭐⭐⭐⭐  
-- llama3.1:8b (4.9 GB)  
-- llama3:latest (4.7 GB)  
-- mistral:latest (4.4 GB)  
-- zephyr:latest (4.1 GB)  
-- yi:9b (5.0 GB)
+### 🟦 General Chat & Reasoning
+- gemma3:27b — 17 GB
+- gemma3:12b — 8.1 GB
+- qwen3:14b — 9.3 GB
+- qwen3:8b — 5.2 GB
+- qwen2.5:32b — 19 GB
+- qwen2.5:14b — 9.0 GB
+- qwen2.5:7b — 4.7 GB
+- llama3.1:latest — 4.9 GB
+- llama3.1:8b — 4.9 GB
+- llama3:latest — 4.7 GB
+- yi:9b — 5.0 GB
+- yi:34b — 19 GB
+- mistral:latest — 4.4 GB
+- mixtral:latest — 26 GB
+- zephyr:latest — 4.1 GB
+- neural-chat:latest — 4.1 GB
+- command-r:latest — 18 GB
+- command-r7b:latest — 5.1 GB
+- deepseek-r1:7b — 4.7 GB
+- deepseek-r1:14b — 9.0 GB
+- gpt-oss:20b — 13 GB
+
+### 🟨 Coding / Development / Agents
+- deepseek-coder-v2:16b — 8.9 GB
+- starcoder2:15b — 9.1 GB
+- devstral:latest — 14 GB
+- qwen2.5-coder:14b — 9.0 GB
+- sqlcoder:7b — 4.1 GB
+- openchat:latest — 4.1 GB
+- codestral:latest — 12 GB
+
+### 🟥 Scientific / Math / Logic
+- qwen2-math:7b — 4.4 GB
+- Hudson/llemma:7b — 4.8 GB
+- phi3:mini — 2.2 GB
+- phi3:medium — 7.9 GB
+
+### 🟩 Vision / Multimodal
+- llava:34b — 20 GB
+- moondream:latest — 1.7 GB
+
+### 🟪 Embeddings / Vector Search
+- snowflake-arctic-embed:335m — 669 MB
+- nomic-embed-text:latest — 274 MB
+- bge-m3:latest — 1.2 GB
+- mxbai-embed-large:latest — 669 MB
+
+### 🟧 Audio / Whisper
+- dimavz/whisper-tiny:latest — 44 MB
+- karanchopda333/whisper:latest — 2.0 GB
+
+### ☁️ Cloud / Proxy Models (nicht lokal, API-Wrapper)
+- ministral-3:14b-cloud
+- ministral-3:8b-cloud
+- ministral-3:3b-cloud
+- qwen3-vl:235b-instruct-cloud
+- qwen3-vl:235b-cloud
+- gpt-oss:120b-cloud
+- gpt-oss:20b-cloud
+- qwen3-coder:480b-cloud
+- deepseek-v3.1:671b-cloud
+- mistral-large-3:675b-cloud
 
 ---
 
-### 🟨 B) Coding / Development / Agents
-- deepseek-coder-v2:16b (8.9 GB) ⭐⭐⭐⭐⭐  
-- starcoder2:15b (9.1 GB) ⭐⭐⭐⭐⭐  
-- qwen3-coder:480b-cloud  
-- codestral:latest (12 GB)  
-- openchat:latest (4.1 GB)  
-- devstral:latest (14 GB)
-
----
-
-### 🟥 C) Logic / Math / Scientific
-- qwen2-math:7b (4.4 GB) ⭐⭐⭐⭐⭐  
-- deepseek-r1:14b (9.0 GB) ⭐⭐⭐⭐⭐  
-- deepseek-r1:7b (4.7 GB)
-
----
-
-### 🟩 D) Vision / Multimodal
-- llava:34b (20 GB) ⭐⭐⭐⭐⭐  
-- moondream:latest (1.7 GB)  
-- qwen3-vl:* (cloud)
-
----
-
-### 🟪 E) Embeddings / Vektor-Suche
-- nomic-embed-text (274 MB)  
-- bge-m3 (1.2 GB) ⭐⭐⭐⭐⭐  
-- mxbai-embed-large (669 MB)
-
----
-
-### 🟧 F) Audio / Whisper
-- whisper-tiny (44 MB)  
-- whisper:latest (2.0 GB)
-
----
-
-## ✔ PrivateGPT integriert
-- lokaler Wissensspeicher  
-- PDF/Text ingestion  
-- Embedding Index (bge-m3 + mxbai-large)  
-- Ollama als Backend  
-
----
 > The entire LLM pipeline runs **locally and offline**.  
 > PrivateGPT + Ollama provide a self-contained, privacy-first AI stack.
 
