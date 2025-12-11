@@ -150,13 +150,7 @@ PrivateGPT is started via a wrapper script (e.g. `pgpt-ollama.sh`) that selects 
 
 ### Subset of the Ollama Model Zoo
 
-# 🤖 4. Lokales AI-Ökosystem (Ollama + PrivateGPT)
-
-## ✔ Ollama Runtime  
-**Alle Modelle offline & lokal. Keine Keys. Kein Cloud-Zugriff.**
-
-## 🔥 OLLAMA Modelle — **kategorisiert**  
-*(Stand: Dezember 2025)*
+## ✔ Ollama Runtime
 
 ### 🟦 A) Reasoning & Chat (General AI)
 - gemma3:27b (17 GB) ⭐⭐⭐⭐⭐  
